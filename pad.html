@@ -64,14 +64,6 @@
             </li>
             <li>
               <a
-                id="nav-menuItem4"
-                onclick="hideMenu();"
-                href="javascript:toggle_background();"
-                >&#9733; Change Background</a
-              >
-            </li>
-            <li>
-              <a
                 id="nav-menuItem10"
                 onclick="showWait();"
                 href="javascript:_go('/cpursx.ps3');"
@@ -649,12 +641,6 @@
       GameMode.innerHTML = game_mode ? "(Game Mode)" : "(Normal Mode)";
 
       if (get("wm", "0") != "0") toggle_cpursx();
-
-      bgc = get("bg", "none");
-      if (bgc == "none") bgc = getCookie("bg", "0");
-      bgc = bgc != "0" ? 1 : 0;
-
-      if (bgc) change_background();
 
       setCookie("tm", "ps3", 10000);
     </script>

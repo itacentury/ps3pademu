@@ -1745,22 +1745,6 @@ function switch_theme() {
   window.open("index.html", "_self");
 }
 
-function change_background() {
-  if (bgc) {
-    imgpad.src = "pad2.jpg";
-    document.body.style.background = "white";
-  } else {
-    imgpad.src = "pad.jpg";
-    document.body.style.background = "black";
-  }
-}
-
-function toggle_background() {
-  bgc = bgc ? 0 : 1;
-  setCookie("bg", bgc, 10000);
-  change_background();
-}
-
 function findNextTabStop(el) {
   var universe = document.querySelectorAll(
     "input, button, select, textarea, a[href]"
@@ -1850,10 +1834,6 @@ function keyDownEvent(e) {
     lstick = rstick = 0;
   }
 
-  if (keyCode == 66) {
-    toggle_background();
-    return;
-  } // b
   if (keyCode == 113) {
     askIP();
     return;

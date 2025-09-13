@@ -2022,6 +2022,3 @@ if (ip.length > 0 && ip != "127.0.0.1" && ip != "localhost") {
 }
 
 refreshScreen();
-
-window.open("http://" + ip + "/cpursx.ps3", "portrait");
-window.focus();

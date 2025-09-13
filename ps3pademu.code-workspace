@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"[html]": {
+			"editor.formatOnPaste": true,
+			"editor.formatOnSave": true,
+			"editor.defaultFormatter": "esbenp.prettier-vscode",
+		},
+		"[javascript]": {
+			"editor.formatOnPaste": true,
+			"editor.formatOnSave": true,
+			"editor.defaultFormatter": "esbenp.prettier-vscode",
+		},
+		"[css]": {
+			"editor.formatOnPaste": true,
+			"editor.formatOnSave": true,
+			"editor.defaultFormatter": "esbenp.prettier-vscode",
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"esbenp.prettier-vscode",
+		]
+	}
+}

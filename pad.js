@@ -2013,3 +2013,9 @@ if (ip.length > 0 && ip != "127.0.0.1" && ip != "localhost") {
 }
 
 refreshScreen();
+
+if (get("wm", "0") != "0") {
+  toggle_cpursx();
+}
+
+setCookie("tm", "ps3", 10000);

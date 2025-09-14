@@ -1481,7 +1481,7 @@ function clearCombo() {
 }
 
 function pad(param) {
-  var gmode = isAltKey || game_mode;
+  var gmode = isAltKey || game_mode || combo == -1;
 
   if (param == "SysInfo") {
     go("/popup.ps3");
@@ -1496,7 +1496,7 @@ function pad(param) {
     go("/pad.ps3?AnalogR_" + param + (gmode ? "_hold" : ""));
     clearCombo();
   } else {
-    go("/pad.ps3?" + scombo + param + (gmode || combo ? "_hold" : ""));
+    go("/pad.ps3?" + scombo + param + (gmode || combo > 0 ? "_hold" : ""));
   }
 
   if (combo > 0) {
@@ -1696,22 +1696,33 @@ function askIP() {
 }
 
 function toggle_ComboMode() {
-  combo = combo == 0 ? 2 : combo == 2 ? 3 : 0;
+  if (combo == 0) {
+    combo = 2;
+  } else if (combo == 2) {
+    combo = 3;
+  } else if (combo == 3) {
+    combo = -1; // Game Mode
+    game_mode = 1;
+  } else {
+    combo = 0; // Single Click
+    game_mode = 0;
+  }
+
   scombo = "";
-  ComboMode.innerHTML = combo
-    ? '<font color="#CCCCCC">Combo: ' + combo + "</font>"
-    : "Single Click";
+
+  if (combo == -1) {
+    ComboMode.innerHTML = '<font color="#CCCCCC">Hold Press</font>';
+  } else if (combo > 0) {
+    ComboMode.innerHTML =
+      '<font color="#CCCCCC">Key Combo: ' + combo + "</font>";
+  } else {
+    ComboMode.innerHTML = '<font color="#CCCCCC">Single Press</font>';
+  }
 
   go("/pad.ps3?release");
   gm.focus();
   window.focus();
   window.scrollTo(0, 0);
-}
-
-function toggle_GameMode() {
-  game_mode = game_mode ? 0 : 1;
-  setCookie("gm", game_mode, 10000);
-  GameMode.innerHTML = game_mode ? " (Game Mode)" : "(Normal Mode)";
 }
 
 var iframe_mode = 1;

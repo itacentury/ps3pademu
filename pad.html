@@ -56,14 +56,6 @@
             </li>
             <li>
               <a
-                id="nav-menuItem3"
-                onclick="hideMenu();"
-                href="javascript:toggle_GameMode();"
-                >&#9733; Switch Game Mode / Normal</a
-              >
-            </li>
-            <li>
-              <a
                 id="nav-menuItem10"
                 onclick="showWait();"
                 href="javascript:_go('/cpursx.ps3');"
@@ -582,17 +574,14 @@
           </font>
         </a>
 
-        <a href="javascript:toggle_GameMode();" id="gm"
-          ><font face="arial" size="5" color="#505050"
-            ><div id="GameMode"></div></font
-        ></a>
         <a
           href="javascript:toggle_ComboMode();"
           style="position: absolute; top: 25px; left: 25px"
-          ><font face="arial" size="5" color="#505050"
-            ><div id="ComboMode">Single Click</div></font
-          ></a
         >
+          <font face="arial" size="5" color="#CCCCCC">
+            <div id="ComboMode">Single Press</div>
+          </font>
+        </a>
 
         <a
           href="javascript:toggle_cpursx();"
@@ -603,12 +592,9 @@
     </div>
 
     <script type="text/javascript">
-      game_mode = get("mode", "none");
-      if (game_mode == "none") game_mode = getCookie("gm", "0");
-      game_mode = game_mode != "0" ? 1 : 0;
-      GameMode.innerHTML = game_mode ? "(Game Mode)" : "(Normal Mode)";
-
-      if (get("wm", "0") != "0") toggle_cpursx();
+      if (get("wm", "0") != "0") {
+        toggle_cpursx();
+      }
 
       setCookie("tm", "ps3", 10000);
     </script>
